@@ -1,0 +1,91 @@
+insert into passengers values (0, 'Zotov Ignat Jakovich', 22334789);
+insert into passengers values (1, 'Kuzmich Foma Igorich', 2054356789);
+insert into passengers values (2, 'Petrov Fedr Lvovich', 2054356789);
+insert into passengers values (3, 'Fedotov Ilya Gn', 22334789);
+insert into passengers values (4, 'tes test test', 20527689);
+insert into passengers values (5, 'Romanov Rinat Luvrk', 2054356789);
+commit;
+
+insert into db_wagon_types values (0, 'sitting', 43);
+insert into db_wagon_types values (2, 'sitting', 63);
+insert into db_wagon_types values (3, 'sitting', 68);
+insert into db_wagon_types values (4, 'reseved_seat', 54);
+insert into db_wagon_types values (5, 'coupe', 36);
+insert into db_wagon_types values (6, 'premium', 4);
+insert into db_wagon_types values (7, 'sleeping', 16);
+insert into db_wagon_types values (8, 'sleeping', 18);
+commit;
+
+insert into db_stations values (0, 'Abbey Wood', '');
+insert into db_stations values (1, 'Aber', '');
+insert into db_stations values (2, 'Abercynon', '');
+insert into db_stations values (3, 'Aberdare', '');
+insert into db_stations values (4, 'Aberdeen', '');
+insert into db_stations values (5, 'Aberdour', '');
+insert into db_stations values (6, 'Aberdovey', '');
+insert into db_stations values (7, 'Abererch', '');
+commit;
+
+insert into trains values (0, 1, 0, 7, 48);
+insert into trains values (1, 2, 3, 7, 48);
+insert into trains values (2, 3, 0, 3, 48);
+insert into trains values (3, 4, 0, 7, 48);
+commit;
+
+insert into routes values (0, 0, 'T', 90);
+insert into routes values (1, 0, 'F', 90);
+insert into routes values (2, 1, 'T', 40);
+insert into routes values (3, 1, 'F', 40);
+insert into routes values (4, 2, 'T', 50);
+insert into routes values (5, 2, 'F', 50);
+commit;
+
+insert into route_stations values (0, 0, 0, 0, '14:00:00', 5);
+insert into route_stations values (1, 0, 1, 1, '14:20:00', 5);
+insert into route_stations values (2, 0, 2, 2, '14:40:00', 5);
+insert into route_stations values (3, 0, 3, 3, '15:00:00', 5);
+insert into route_stations values (4, 0, 4, 4, '15:20:00', 5);
+insert into route_stations values (5, 0, 5, 5, '15:40:00', 5);
+insert into route_stations values (6, 0, 6, 6, '16:00:00', 5);
+insert into route_stations values (7, 0, 7, 7, '16:20:00', 5);
+commit;
+
+insert into schedule values (0, 0, 0, '2016-01-01', '14:00:00');
+insert into schedule values (1, 0, 1, '2016-01-02', '14:00:00');
+commit;
+
+
+insert into db_wagons values (0, 0, 0);
+insert into db_wagons values (1, 0, 0);
+insert into db_wagons values (2, 0, 0);
+insert into db_wagons values (3, 0, 0);
+insert into db_wagons values (4, 0, 0);
+insert into db_wagons values (5, 0, 0);
+insert into db_wagons values (6, 0, 0);
+insert into db_wagons values (7, 0, 0);
+commit;
+
+
+insert into wagon_places values (0, 0, 'std', 1);
+insert into wagon_places values (1, 0, 'std', 2);
+insert into wagon_places values (2, 0, 'std', 3);
+insert into wagon_places values (3, 0, 'std', 4);
+insert into wagon_places values (4, 0, 'std', 5);
+insert into wagon_places values (5, 0, 'std', 6);
+insert into wagon_places values (6, 0, 'std', 7);
+insert into wagon_places values (7, 0, 'std', 8);
+commit;
+
+
+insert into tickets values (0, 0, 0, 0, 0, 900);
+insert into tickets values (1, 1, 0, 1, 0, 900);
+insert into tickets values (2, 2, 0, 2, 0, 900);
+insert into tickets values (3, 3, 0, 3, 0, 900);
+insert into tickets values (4, 4, 0, 4, 0, 900);
+insert into tickets values (5, 5, 0, 5, 0, 900);
+commit;
+
+insert into tickets_sold values (0, 0, '2015-11-01', '10:10:10');
+insert into tickets_sold values (1, 0, '2015-11-10', '12:10:10');
+insert into tickets_sold values (2, 0, '2015-11-15', '14:10:10');
+commit;
