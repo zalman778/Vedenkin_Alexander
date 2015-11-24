@@ -1,0 +1,107 @@
+﻿create table passengers (		--Спроавочник пассажиров
+	id integer not null,
+	fio varchar(30) not null,
+	doc integer not null,
+	primary key (id)
+);
+
+create table wagon_places (		--Справочник мест в вагонах
+	id integer not null,
+	id_wagon integer not null,	
+	place_type varchar(30) not null,
+	place_num integer not null,
+	primary key (id)
+);
+
+create table db_wagons (		--Справочник вагонов
+	id integer not null,
+	wag_type varchar(30) not null,
+	id_schedule integer not null,
+	primary key (id)
+);
+
+create table tickets (			--Билеты
+	id integer not null,
+	id_pass integer not null,
+	id_schedule integer not null,
+	id_plc_wag integer not null,
+	id_privileges integer not null,
+	price integer not null,
+	primary key (id)
+);
+
+create table schedule (			--Расписание движения определлого состава 
+					--по определенному маршруту
+	id integer not null,
+	id_route integer not null,
+	id_train integer not null,
+	st_date date not null,
+	st_time time not null,
+	primary key (id)
+);
+
+create table routes (			--Маршруты
+	id integer not null,
+	id_train integer not null,
+	direction char(1) not null,		--1=straight route, 0=inverted
+	distance integer not null,	--Длинна маршрута
+	primary key (id)		
+);
+
+create table db_stations (		--Справочник станций
+	id integer not null,
+	name varchar(30) not null,
+	geoloc varchar(15) not null,
+	primary key (id)
+);
+
+create table trains (
+	id integer not null,
+	train_num integer not null,	--Номер поезда
+	id_stat_st integer not null,
+	id_stat_end integer not null,
+	periodic integer not null,	--Периодичность движения поезда
+	primary key (id)
+);
+
+create table route_stations (		--Таблица остановок на маршруте
+	id integer not null,
+	id_route integer not null,
+	st_cnt integer not null,	--Положение станции в маршруте
+	id_station integer not null,
+	st_time time not null,
+	duration integer not null,	--Продолжительность остановки
+	primary key(id)		
+);
+
+commit;
+
+
+
+alter table wagon_places
+add foreign key (id_wagon) references db_wagons (id);
+
+alter table db_wagons
+add foreign key (id_schedule) references schedule (id);
+
+alter table tickets
+add foreign key (id_pass) references passengers (id),
+add foreign key (id_schedule) references schedule (id),
+add foreign key (id_plc_wag) references wagon_places (id);
+
+alter table schedule
+add foreign key (id_route) references routes (id),
+add foreign key (id_train) references trains (id);
+
+alter table routes
+add foreign key (id_train) references trains (id);
+
+alter table trains
+add foreign key (id_stat_st) references db_stations (id),
+add foreign key (id_stat_end) references db_stations (id);
+
+alter table route_stations
+add foreign key (id_route) references routes (id),
+add foreign key (id_station) references db_stations (id);
+
+commit;
